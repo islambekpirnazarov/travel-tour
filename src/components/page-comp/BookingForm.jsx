@@ -12,7 +12,7 @@ const BookingForm = ({ dest, tour }) => {
     const pathId = id?.split('-')
     
           
-    useEffect(() => { setDestId( pathId[0] || dest[0]?.id ) }, [id || dest])
+    useEffect(() => { setDestId( pathId?.[0] || dest[0]?.id ) }, [id || dest])
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -88,7 +88,7 @@ const BookingForm = ({ dest, tour }) => {
 
                 <div>
                     <label className='text-[18px] font-semibold' htmlFor="tour">Tour:</label>
-                    <select defaultValue={pathId[1]} name="tourId" id="tour" className='py-[7px] px-[15px] w-full text-[16px] border-orange-400 border-[2px] rounded-md focus:border-orange-700 outline-none'>
+                    <select defaultValue={pathId?.[1]} name="tourId" id="tour" className='py-[7px] px-[15px] w-full text-[16px] border-orange-400 border-[2px] rounded-md focus:border-orange-700 outline-none'>
                         {selectTour?.map(item => (
                             <option key={item.id} value={item.id}>{item.title}</option>
                         ))}
